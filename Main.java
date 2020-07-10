@@ -1,41 +1,66 @@
-import java.util.Scanner;
-
 public class Main {
-
-
     public static void main(String[] args) {
-        Employee[] persArray = new Employee[5];
-        persArray[0] = new Employee("Иванов Иван Иванович", "Инженер", "IIIwD@mail.ru", "89204344921", 30000, 59);
-        persArray[1] = new Employee("Петров Пётр Петрович", "Фрезеровщик", "PPPwD@mail.ru", "89204344922", 43000, 45);
-        persArray[2] = new Employee("Кочетова Татьяна Геннадьевна", "Главный бухгалтер", "KTGbuh@mail.ru", "89204344912", 40000, 39);
-        persArray[3] = new Employee("Филина Ирина Евгеньевна", "Бухгалтер", "FIGbuh@mail.ru", "89204344913", 26000, 24);
-        persArray[4] = new Employee("Чернов Александр Витальевич", "Генеральный директор", "CHAV@mail.ru", "89204344901", 60000, 59);
 
-
-        choseWhoPrint(persArray);
+        Dog bob = new Dog("Bobby");
+        Dog strongBob = new Dog("Сильный Bob");
+        strongBob.setRunLength(700);
+        strongBob.setJumpLength(2.0);
+        strongBob.setSwimLength(30);
+        Cat barsic = new Cat("Barsic");
+        Cat floatingBarsic = new Cat("Плавающий Barsic");
+        floatingBarsic.setSwimLength(5);
+        establishObstruction(bob, strongBob, barsic, floatingBarsic);
 
     }
 
-    public static Scanner sc = new Scanner(System.in);
 
-    public static void choseWhoPrint(Employee[] persArray) {
-        System.out.println("Эта программа выводит список сотрудников, которым больше 'n' лет" +
-                "\nВведите 'n'");
-        int age = sc.nextInt();
-        printWhoMore(persArray, age);
+    public static void establishObstruction(Dog bob, Dog superBob, Cat barsic, Cat superBarsic) {
+
+        int runObstruction = 378;
+        double jumpObstruction = 0.9;
+        int swimObstruction = 3;
+
+
+        resultsDogRun(bob, runObstruction);
+        resultsDogJump(bob, jumpObstruction);
+        resultsDogSwim(bob, swimObstruction);
+        resultsDogRun(superBob, runObstruction);
+        resultsDogJump(superBob, jumpObstruction);
+        resultsDogSwim(superBob, swimObstruction);
+        resultsCatRun(barsic, runObstruction);
+        resultsCatJump(barsic, jumpObstruction);
+        resultsCatSwim(barsic, swimObstruction);
+        resultsCatRun(superBarsic, runObstruction);
+        resultsCatJump(superBarsic, jumpObstruction);
+        resultsCatSwim(superBarsic, swimObstruction);
+
+
+    }
+
+    public static void resultsDogRun(Dog name, int obstruction) {
+        name.dogRun(obstruction);
+    }
+
+    public static void resultsDogJump(Dog name, double obstruction) {
+        name.dogJump(obstruction);
+    }
+
+    public static void resultsDogSwim(Dog name, int obstruction) {
+        name.dogSwim(obstruction);
     }
 
 
-
-
-    public static void printWhoMore (Employee[] pers, int age){
-        int i;
-        System.out.println("Список сотрудников, которым больше " + age +":\n");
-        for (i = 0; i < pers.length; i++){
-                while (pers[i].getAge() >= age) {
-                    pers[i].info();
-                    break;
-            }
-        }
+    public static void resultsCatRun(Cat name, int obstruction) {
+        name.catRun(obstruction);
     }
+
+    public static void resultsCatJump(Cat name, double obstruction) {
+        name.catJump(obstruction);
+    }
+
+    public static void resultsCatSwim(Cat name, int obstruction) {
+        name.catSwim(obstruction);
+    }
+
+
 }
