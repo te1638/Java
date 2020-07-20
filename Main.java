@@ -29,38 +29,31 @@ public class Main {
                 if (obstacles[j].getTypeObstacle() == "wall") {
 
                     participants[i].jump();
-                    if (obstacles[j].getObstacleSize() > participants[i].getJumpHeight())
-                    {
+                    if (obstacles[j].getObstacleSize() > participants[i].getJumpHeight()) {
                         result = false;
                         System.out.println(result);
                         System.out.println("Препятствие не пройдено, участник выбывает");
                         break;
-                    }
-                    else if (obstacles[j].getObstacleSize() <= participants[i].getJumpHeight())
-                    {
+                    } else if (obstacles[j].getObstacleSize() <= participants[i].getJumpHeight()) {
                         result = true;
                         System.out.println(result);
 
                     }
 
-                }
-                else if (obstacles[j].getTypeObstacle() == "run") {
+                } else if (obstacles[j].getTypeObstacle() == "run") {
                     participants[i].run();
-                    if (obstacles[j].getObstacleSize() > participants[i].getRunLength())
-                    {
+                    if (obstacles[j].getObstacleSize() > participants[i].getRunLength()) {
                         result = false;
                         System.out.println(result);
                         break;
-                    }
-                    else if (obstacles[j].getObstacleSize() <= participants[i].getRunLength())
-                    {
+                    } else if (obstacles[j].getObstacleSize() <= participants[i].getRunLength()) {
                         result = true;
-                        System.out.println(result );
+                        System.out.println(result);
 
                     }
 
                 }
-                if ((j+1) == obstacles.length){
+                if ((j + 1) == obstacles.length) {
                     participants[i].win();
                 }
 
@@ -68,11 +61,6 @@ public class Main {
         }
     }
 }
-
-
-
-
-
 
 
 
