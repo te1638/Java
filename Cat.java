@@ -10,8 +10,6 @@ public class Cat implements Participant {
     }
 
 
-
-
     public void run() {
 
 
@@ -26,13 +24,15 @@ public class Cat implements Participant {
 
     }
 
-    public int getJumpHeight(){
+    public int getJumpHeight() {
         return jumpHeight;
     }
-    public int getRunLength(){
+
+    public int getRunLength() {
         return runLength;
     }
-    public void win(){
+
+    public void win() {
         System.out.format("Участник %s завершил полосу препятствий\n", name);
     }
 
