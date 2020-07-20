@@ -7,12 +7,14 @@ public class RunTrack implements Obstacle {
 
         this.trackLength = trackLength;
     }
-@Override
+
+    @Override
     public int getObstacleSize() {
         return trackLength;
     }
+
     @Override
-    public String getTypeObstacle(){
+    public String getTypeObstacle() {
         return runTrack;
     }
 }
