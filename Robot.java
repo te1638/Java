@@ -10,7 +10,6 @@ public class Robot implements Participant {
     }
 
 
-
     @Override
     public void run() {
 
@@ -24,15 +23,17 @@ public class Robot implements Participant {
         System.out.println(String.format("Robot [%s] try jumping", number));
 
     }
-    public int getJumpHeight(){
+
+    public int getJumpHeight() {
         return jumpHeight;
     }
-    public int getRunLength(){
+
+    public int getRunLength() {
         return runLength;
     }
-    public void win(){
+
+    public void win() {
         System.out.format("Участник Robot %s завершил полосу препятствий\n", number);
     }
-
 
 }
