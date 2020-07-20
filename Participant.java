@@ -3,7 +3,6 @@ public interface Participant {
     void jump();
     int getJumpHeight();
     int getRunLength();
-void win();
-
+    void win();
 
 }
