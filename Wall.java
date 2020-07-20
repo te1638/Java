@@ -7,13 +7,14 @@ public class Wall implements Obstacle {
 
         this.barrierHeight = barrierHeight;
     }
-@Override
+
+    @Override
     public int getObstacleSize() {
         return barrierHeight;
     }
 
     @Override
-    public String getTypeObstacle(){
+    public String getTypeObstacle() {
         return wall;
     }
 
