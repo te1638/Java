@@ -22,47 +22,49 @@ public class Main {
         obstacles[4] = new Wall(50);
         obstacles[5] = new RunTrack(2500);
 
-        boolean result;
-        for (int i = 0; i < participants.length; i++) {
-            for (int j = 0; j < obstacles.length; j++) {
-                System.out.println("\nПрепятствие №" + (j + 1));
-                if (obstacles[j].getTypeObstacle() == "wall") {
+        startRace(participants, obstacles);
 
-                    participants[i].jump();
-                    if (obstacles[j].getObstacleSize() > participants[i].getJumpHeight()) {
-                        result = false;
-                        System.out.println(result);
+
+    }
+
+    public static void startRace(Participant[] player, Obstacle[] impediment) {
+        for (int i = 0; i < player.length; i++) {
+            for (int j = 0; j < impediment.length; j++) {
+                System.out.println("\nПрепятствие №" + (j + 1));
+                if (impediment[j].getTypeObstacle() == "wall") {
+
+                    player[i].jump();
+                    if (impediment[j].getObstacleSize() > player[i].getJumpHeight()) {
+
                         System.out.println("Препятствие не пройдено, участник выбывает");
                         break;
-                    } else if (obstacles[j].getObstacleSize() <= participants[i].getJumpHeight()) {
-                        result = true;
-                        System.out.println(result);
+                    } else if (impediment[j].getObstacleSize() <= player[i].getJumpHeight()) {
+
+                        System.out.println("Препятствие пройдено");
 
                     }
 
-                } else if (obstacles[j].getTypeObstacle() == "run") {
-                    participants[i].run();
-                    if (obstacles[j].getObstacleSize() > participants[i].getRunLength()) {
-                        result = false;
-                        System.out.println(result);
+                } else if (impediment[j].getTypeObstacle() == "run") {
+                    player[i].run();
+                    if (impediment[j].getObstacleSize() > player[i].getRunLength()) {
+
+                        System.out.println("Препятствие не пройдено, участник выбывает");
                         break;
-                    } else if (obstacles[j].getObstacleSize() <= participants[i].getRunLength()) {
-                        result = true;
-                        System.out.println(result);
+                    } else if (impediment[j].getObstacleSize() <= player[i].getRunLength()) {
+
+                        System.out.println("Препятствие пройдено");
 
                     }
 
                 }
-                if ((j + 1) == obstacles.length) {
-                    participants[i].win();
+                if ((j + 1) == impediment.length) {
+                    player[i].win();
                 }
 
             }
         }
     }
 }
-
-
 
 
 
