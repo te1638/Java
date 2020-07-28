@@ -1,14 +1,8 @@
-
 public class Main {
     public static void main(String[] args) {
 
-
         listAction();
-        String name1 = "Иванов";
-        String name2 = "Крюков";
-
-        telephoneDirectory(name1);
-        telephoneDirectory(name2);
+        telephoneDirectory();
     }
 
     public static void listAction() {
@@ -28,11 +22,10 @@ public class Main {
         catalog.printUnique();
     }
 
-    public static void telephoneDirectory(String name) {
+    public static void telephoneDirectory() {
 
+        String name = "Иванов";
         System.out.println("\nПоиск в телефонном справочнике по фамилии: " + name);
-
-
         TelephoneDirectory td = new TelephoneDirectory();
         td.add("55-44-33", "Павлов");
         td.add("55-44-31", "Иванов");
