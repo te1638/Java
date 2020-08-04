@@ -8,22 +8,16 @@ public class Main {
 
     }
 
-    public static void runToArr() {
+    public static void runToArr() throws InterruptedException {
         System.out.println("\nРасчёт времени пробега по массиву в одном потоке");
         final int size = 10000000;
         float[] arr = new float[size];
         for (int i = 0; i < size; i++) {
             arr[i] = 1;
         }
-
-        long fixTime = System.currentTimeMillis();
-        for (int i = 0; i < size; i++) {
-            arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-        }
-        System.currentTimeMillis();
-
-        System.out.println("\nВремя цикла рассчёта для первого метода: " + (System.currentTimeMillis() - fixTime));
-
+        Thread way1 = new Thread(new Calculate(arr, 1));
+        way1.start();
+        way1.join();
     }
 
     public static void runTo2Arr() throws InterruptedException {
