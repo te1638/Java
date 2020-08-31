@@ -95,10 +95,11 @@ public class ClientHandler {
                 return;
             }
             if (message.startsWith("/takeNewName")){
+
                 String[] credentials = message.split("\\s");
                 try {
                     System.out.println( credentials[1]);
-                    BasicAuthService.newName(credentials[1]);
+                    BasicAuthService.newName(credentials[1], record.getId());
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
