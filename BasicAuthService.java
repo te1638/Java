@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public class BasicAuthService{
-    public static int id;
+
     public static AuthService.Record findByLoginAndPassword(String login, String password) {
         System.out.println(login + password);
         Connection connection = DBService.getConnection();
@@ -25,7 +25,7 @@ public class BasicAuthService{
                         resultSet.getString("password")
 
                 );
-            }id = resultSet.getInt("id");
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
@@ -37,10 +37,11 @@ public class BasicAuthService{
         }
         return null;
     }
-    public static AuthService.Record newName(String newName) throws SQLException {
-        System.out.println();
+    public static AuthService.Record newName(String newName, long id) throws SQLException {
+
         Connection connection = DBService.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `users` SET `name` = ? WHERE `users`.`id` = ?");
+
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE students_test.users SET name = ? WHERE students_test.users.id = ?");
         preparedStatement.setString(1, newName);
         preparedStatement.setString(2, String.valueOf(id));
 
