@@ -37,13 +37,14 @@ public class BasicAuthService{
         }
         return null;
     }
-    public static AuthService.Record newName(String newName, long id) throws SQLException {
+   public static AuthService.Record newName(String newName, long id) throws SQLException {
 
         Connection connection = DBService.getConnection();
 
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE students_test.users SET name = ? WHERE students_test.users.id = ?");
-        preparedStatement.setString(1, newName);
-        preparedStatement.setString(2, String.valueOf(id));
+        PreparedStatement statement = connection.prepareStatement("UPDATE users  SET name = ? WHERE id = ?");
+        statement.setString(1, newName);
+        statement.setString(2, String.valueOf(id));
+        statement.executeUpdate();
 
         return null;
     }
