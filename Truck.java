@@ -19,25 +19,15 @@ public class Truck implements Runnable {
                 Thread.sleep(3000);
                 amountOfGasoline -= expense;
                 System.out.println(type + " " + name + " fuel = " + amountOfGasoline);
-
-
-
                 if (amountOfGasoline <=expense){
                     System.out.println(type + " "+ name+" going to FuelStation");
-
                     amountOfGasoline = fuelStation.refuel(vol, type, name);
-
-
-
                 }
-
-
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-
 }
 
 
